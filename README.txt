@@ -1,4 +1,4 @@
-A Simple Blog v1
+Journal
 
 LIVE VERSION:
 	Simply navigate to http://orbital-kit-125023.appspot.com/
