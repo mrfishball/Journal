@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block navbar %}{% include "menu.html" %}{% endblock %}
+
+{% block page_header %}
+<div class="site-heading">
+	<h1>Are you sure you want to delete </h1>
+	<h2><i>"{{post.title}}"</i> ?</h2>
+	<br><br>
+	<div class="delete-warning text-center">
+		<form method=post>
+			<button type="submit" class="btn btn-default">Delete</button>
+		  	<a class="btn btn-danger" href="/blog/{{post.key().id()}}">No!!!</a>
+		</form>
+	</div>
+</div>
+{% endblock %}

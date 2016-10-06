@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block navbar %}{% include "menu.html" %}{% endblock %}
+
+{% block page_header %}
+<div class="site-heading">
+	<h1>Changed your mind about</h1>
+	<h2><i>"{{post.title}}"</i> ?</h2>
+</div>
+{% endblock %}
+
+{% block page_content %}
+	<form id="newpost" method="post" role="form">
+	  <div class="form-group">
+	    <label for="post_title">Title</label>
+	    <input type="text" class="form-control" id="post_title" name="title" value="{{post.title}}">
+	  </div>
+	  <br>
+	  <div class="form-group">
+	    <label for="post_body">Body</label>
+	    <textarea class="form-control" id="post_body" rows="7" name="content" value="">{{post.content}}</textarea>
+	  </div>
+	  <br>
+	  <button type="submit" class="btn btn-primary">Submit</button>
+	  <a class="btn btn-default" href="/blog/{{post.key().id()}}">Cancel</a>
+	</form>
+	<br>
+	<br>
+{% endblock %}

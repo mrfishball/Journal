@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+{% block navbar %}{% include "menu.html" %}{% endblock %}
+
+{% block page_header %}
+<div class="post-heading">
+	<h1>{{post.title}}</h1>
+	<br><br>
+	<!-- <h2 class="subheading"></h2> -->
+	<span class="meta">Posted by <a href="#">{{post.author.username}}</a><small>{{post_time}}</small></span>
+</div>
+{% endblock %}
+
+{% block page_content %}
+{{post.render() | safe}}
+{% block post_controller %}{% include "controller.html" %}{% endblock %}
+
+{% block comment_box %}{% include "comment.html" %}{% endblock %}
+<div id="posted-comment">
+{% for comment in comments %}
+	<!--
+		Comment edit modal
+	-->
+	<div class="modal fade" id="edit-{{comment[0].key().id()}}" data-keyboard="false" data-backdrop="true">
+		<div class="modal-body">
+			<form class="comment-edit" action="/blog/{{post.key().id()}}/comment-edit" method="post" role="form">
+			  <div class="form-group">
+			    <label for="comment_body">Edit your comment</label>
+			    <p>{{error}}</p>
+			    <input type=hidden name="cid" value="{{comment[0].key().id()}}" />
+			    <textarea class="form-control" id="comment_body" rows="4" name="comment" value="">{{comment[0].comment}}</textarea>
+			  </div>
+			  <br>
+			  <button type="submit" class="btn btn-primary">Submit</button>
+			  <a class="btn btn-default" data-dismiss="modal" href="#">Cancel</a>
+			</form>
+			<br>
+			<br>
+		</div>
+	</div>
+	<div class="comment-body" id="body-{{comment[0].key().id()}}">
+		<span class="comment-meta"><h4><b>{{comment[0].user.username}}</b></h4><small>{{comment[1]}}</small></span>
+		{% if comment[2] %}
+			<span class="comment-control"><a class="open-modal" id="commedit-{{comment[0].key().id()}}" href="#">Edit</a><a class="show-delete" id="delete-{{comment[0].key().id()}}" href="#">Delete</a></span>
+		{% endif %}
+		{{comment[0].render() | safe}}
+	</div>
+	<div class="delete-warning text-center" id="confirm-{{comment[0].key().id()}}">
+		<form method="post" action="/blog/{{post.key().id()}}/comment-delete" role="form">
+			<input type=hidden name="cid" value="{{comment[0].key().id()}}" />
+			<button type="submit" class="btn btn-default">Delete</button>
+		  	<a class="btn btn-danger" id="no-{{comment[0].key().id()}}" href="#">No!!!</a>
+		</form>
+	</div>
+<hr>
+{% endfor %}
+</div>
+{% endblock %}

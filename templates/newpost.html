@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block navbar %}{% include "menu.html" %}{% endblock %}
+
+{% block page_header %}
+<div class="site-heading">
+	<h1>Empower the world</h1>
+	<hr class="small">
+    <span class="subheading">with your ideas</span>
+</div>
+{% endblock %}
+
+{% block page_content %}
+	<div class="errors text-center">
+		<h4>{{error}}</h4>
+	</div>
+	<form id="newpost" method="post" role="form">
+	  <div class="form-group">
+	    <label for="post_title">Title</label>
+	    <input type="text" class="form-control" id="post_title" name="title" value={{title}}>
+	  </div>
+	  <br>
+	  <div class="form-group">
+	    <label for="post_body">Body</label>
+	    <textarea class="form-control" id="post_body" rows="7" name="content" value={{content}}></textarea>
+	  </div>
+	  <br>
+	  <button type="submit" class="btn btn-primary">Submit</button>
+	</form>
+	<br>
+	<br>
+{% endblock %}

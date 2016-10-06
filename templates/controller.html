@@ -1,0 +1,17 @@
+<div id="post-control">
+	{% if author %}
+		<a href="/blog/{{post.key().id()}}/edit">Edit</a>
+		<a href="/blog/{{post.key().id()}}/delete">Delete</a>
+	{% endif %}
+</div>
+	
+<div class="stats">
+	{% if not author %}
+		<div class="heart" id="sneak" rel="{{liked[1]}}"></div>
+		<form id="likeform" method="post" action="/blog/{{post.key().id()}}/like">
+			<input type="hidden" name="name" value="like" />
+		</form>
+		<div class="likeCount">{% if like > 0 %}{{like}}{% endif %}</div>
+	{% endif %}
+</div>
+	

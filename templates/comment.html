@@ -1,0 +1,14 @@
+<div id="comment-box">
+	<form id="comment" action="/blog/{{post.key().id()}}/comment" method="post" role="form">
+	  <div class="form-group">
+	    <label for="comment_body">Comment</label>
+	    <p>{{error}}</p>
+	    <textarea class="form-control" id="comment_body" rows="4" name="comment" value={{comment}}></textarea>
+	  </div>
+	  <br>
+	  <button type="submit" class="btn btn-primary">Submit</button>
+	</form>
+	<br>
+	<br>
+	<hr>
+</div>

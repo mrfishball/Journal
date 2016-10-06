@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block navbar %}{% include "menu.html" %}{% endblock %}
+
+{% block page_header %}
+<div class="site-heading">
+	<h1>Dsicover stories</h1>
+	<hr class="small">
+    <span class="subheading">from all around world</span>
+</div>
+{% endblock %}
+
+{% block page_content %}
+
+{% for p in package %}
+<div class="post-preview">
+    <a href="/blog/{{p[0].key().id()}}">
+        <h2 class="post-title">
+            {{p[0].title}}
+        </h2>
+        <h3 class="post-subtitle">
+        </h3>
+    </a>
+    <br>
+    <p class="post-meta">Posted by <a href="#">{{p[0].author.username}}</a><a href="#">{{p[2][1]}} <i class="fa fa-comment-o" aria-hidden="true"></i></a><a href="#">{{p[2][0]}} <i class="fa fa-heart-o" aria-hidden="true"></i></a><small>{{p[1]}}</small></p>
+</div>
+<hr>
+<br>
+{% endfor %}
+{% endblock %}
