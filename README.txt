@@ -19,3 +19,4 @@ LOCAL RUN:
 		You should see the app running.
 
 By: Steven Kwok
+Powered by: Google App Engine
