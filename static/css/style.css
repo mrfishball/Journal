@@ -36,6 +36,11 @@ h6 {
   font-family: inherit;
   font-weight: 700;
 }
+
+.errors h4 {
+  color: red;
+} 
+
 a {
   color: #333333;
 }
