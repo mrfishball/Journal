@@ -121,28 +121,7 @@ hr.small {
   font-weight: 800;
   letter-spacing: 1px;
 }
-@media only screen and (min-width: 768px) {
-  .navbar-custom {
-    background: transparent;
-    border-bottom: 1px solid transparent;
-  }
-  .navbar-custom .navbar-brand {
-    color: white;
-    padding: 20px;
-  }
-  .navbar-custom .navbar-brand:hover,
-  .navbar-custom .navbar-brand:focus {
-    color: rgba(255, 255, 255, 0.8);
-  }
-  .navbar-custom .nav li a {
-    color: white;
-    padding: 20px;
-  }
-  .navbar-custom .nav li a:hover,
-  .navbar-custom .nav li a:focus {
-    color: rgba(255, 255, 255, 0.8);
-  }
-}
+
 @media only screen and (min-width: 1170px) {
   .navbar-custom {
     -webkit-transition: background-color 0.3s;
@@ -206,13 +185,7 @@ hr.small {
   padding: 100px 0 50px;
   color: white;
 }
-@media only screen and (min-width: 768px) {
-  .intro-header .site-heading,
-  .intro-header .post-heading,
-  .intro-header .page-heading {
-    padding: 150px 0;
-  }
-}
+
 .intro-header .site-heading,
 .intro-header .page-heading {
   text-align: center;
@@ -232,13 +205,52 @@ hr.small {
   margin: 10px 0 0;
 }
 @media only screen and (min-width: 768px) {
+  .intro-header .site-heading,
+  .intro-header .post-heading,
+  .intro-header .page-heading {
+    padding: 150px 0;
+  }
+
   .intro-header .site-heading h1,
   .intro-header .page-heading h1 {
     font-size: 80px;
   }
+
+  .intro-header .post-heading h1 {
+    font-size: 55px;
+  }
+
+  .intro-header .post-heading .subheading {
+    font-size: 30px;
+  }
+
+  .navbar-custom {
+    background: transparent;
+    border-bottom: 1px solid transparent;
+  }
+
+  .navbar-custom .navbar-brand {
+    color: white;
+    padding: 20px;
+  }
+
+  .navbar-custom .navbar-brand:hover,
+  .navbar-custom .navbar-brand:focus {
+    color: rgba(255, 255, 255, 0.8);
+  }
+
+  .navbar-custom .nav li a {
+    color: white;
+    padding: 20px;
+  }
+
+  .navbar-custom .nav li a:hover,
+  .navbar-custom .nav li a:focus {
+    color: rgba(255, 255, 255, 0.8);
+  }
 }
 .intro-header .post-heading h1 {
-  font-size: 35px;
+  font-size: 55px;
 }
 .intro-header .post-heading .subheading,
 .intro-header .post-heading .meta {
@@ -247,7 +259,7 @@ hr.small {
 }
 .intro-header .post-heading .subheading {
   font-family: inherit;
-  font-size: 24px;
+  font-size: 30px;
   margin: 10px 0 30px;
   font-weight: 400;
 }
@@ -260,14 +272,7 @@ hr.small {
 .intro-header .post-heading .meta a {
   color: white;
 }
-@media only screen and (min-width: 768px) {
-  .intro-header .post-heading h1 {
-    font-size: 55px;
-  }
-  .intro-header .post-heading .subheading {
-    font-size: 30px;
-  }
-}
+
 .post-preview > a {
   color: #333333;
 }
@@ -637,9 +642,8 @@ body {
     position: absolute;
     bottom: -250px;
     right: 5%;
-    padding: 25px 25px 25px;
-    width: 750px;
-    height: 500px;
+    padding: 10px 25px 25px;
+    width: 60vw;
     background-color: #fff;
     border-radius: 0;
     opacity: 0;
