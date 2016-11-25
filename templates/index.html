@@ -3,9 +3,123 @@
 {% block navbar %}{% include "menu.html" %}{% endblock %}
 
 {% block page_header %}
-<div class="site-heading">
-	<div class="panel panel-login">
-		<div class="panel-heading">
+	<div class="site-heading">
+		<div class="main-nav">
+			<ul>
+				<li><a class="cd-signin" href="#0">Sign in</a></li>
+				<li><a class="cd-signup" href="#0">Sign up</a></li>
+				<li><p>{% if error or error_username or error_email or error_password or error_verify %}
+							{{erro}}
+						{% endif %}</p></li>
+			</ul>
+		</div>
+	</div>
+		<div class="cd-user-modal"> <!-- this is the entire modal form, including the background -->
+		<div class="cd-user-modal-container"> <!-- this is the container wrapper -->
+			<ul class="cd-switcher">
+				<li><a href="#0">Sign in</a></li>
+				<li><a href="#0">Sign up</a></li>
+			</ul>
+
+			<div id="cd-login"> <!-- log in form -->
+				<form class="cd-form" method="post" role="form">
+					<p class="fieldset">
+						<label class="image-replace cd-username" for="signin-username">E-mail</label>
+						<input class="full-width has-padding has-border" name="username" id="signin-user" type="text" placeholder="Username" value="{{username}}">
+						<span class="cd-error-message">
+						{% if error or error_username or error_email or error_password or error_verify %}
+							{{error_username}}
+						{% endif %}
+						</span>
+					</p>
+
+					<p class="fieldset">
+						<label class="image-replace cd-password" for="signin-password">Password</label>
+						<input class="full-width has-padding has-border" name="password" id="signin-password" type="password" placeholder="Password">
+						<a href="#0" class="hide-password">Show</a>
+						<span class="cd-error-message">
+						{% if error or error_username or error_email or error_password or error_verify %}
+							{{error_password}}
+						{% endif %}
+						</span>
+					</p>
+
+					<p class="fieldset">
+						<input type="checkbox" id="remember-me" checked>
+						<label for="remember-me">Remember me</label>
+					</p>
+
+					<p class="fieldset">
+						<input class="full-width" type="submit" name="login-submit" value="Login">
+					</p>
+				</form>
+				
+				<p class="cd-form-bottom-message"><a href="#0">Forgot your password?</a></p>
+				<!-- <a href="#0" class="cd-close-form">Close</a> -->
+			</div> <!-- cd-login -->
+
+			<div id="cd-signup"> <!-- sign up form -->
+				<form class="cd-form" method="post" role="form">
+					<p class="fieldset">
+						<label class="image-replace cd-username" for="signup-username">Username</label>
+						<input class="full-width has-padding has-border" name="username" id="signup-username" type="text" placeholder="Username">
+						<span class="cd-error-message">Error message here!</span>
+					</p>
+
+					<p class="fieldset">
+						<label class="image-replace cd-email" for="signup-email">E-mail</label>
+						<input class="full-width has-padding has-border" name="email" id="signup-email" type="email" placeholder="E-mail">
+						<span class="cd-error-message">Error message here!</span>
+					</p>
+
+					<p class="fieldset">
+						<label class="image-replace cd-password" for="signup-password">Password</label>
+						<input class="full-width has-padding has-border" name="password" id="signup-password" type="password"  placeholder="Password">
+						<a href="#0" class="hide-password">Show</a>
+						<span class="cd-error-message">Error message here!</span>
+					</p>
+
+					<p class="fieldset">
+						<label class="image-replace cd-password" for="signup-password">Password</label>
+						<input class="full-width has-padding has-border" name="verify" id="signup-password" type="password"  placeholder="Confirm Password">
+						<a href="#0" class="hide-password">Show</a>
+					</p>
+
+					<p class="fieldset">
+						<input type="checkbox" id="accept-terms">
+						<label for="accept-terms">I agree to the <a href="#0">Terms</a></label>
+					</p>
+
+					<p class="fieldset">
+						<input class="full-width has-padding" name="register-submit" type="submit" value="Create account">
+					</p>
+				</form>
+
+				<!-- <a href="#0" class="cd-close-form">Close</a> -->
+			</div> <!-- cd-signup -->
+
+			<div id="cd-reset-password"> <!-- reset password form -->
+				<p class="cd-form-message">Lost your password? Please enter your email address. You will receive a link to create a new password.</p>
+
+				<form class="cd-form">
+					<p class="fieldset">
+						<label class="image-replace cd-email" for="reset-email">E-mail</label>
+						<input class="full-width has-padding has-border" id="reset-email" type="email" placeholder="E-mail">
+						<span class="cd-error-message">Error message here!</span>
+					</p>
+
+					<p class="fieldset">
+						<input class="full-width has-padding" type="submit" value="Reset password">
+					</p>
+				</form>
+
+				<p class="cd-form-bottom-message"><a href="#0">Back to log-in</a></p>
+			</div> <!-- cd-reset-password -->
+			<a href="#0" class="cd-close-form">Close</a>
+		</div> <!-- cd-user-modal-container -->
+	</div> <!-- cd-user-modal -->
+		
+		<!-- <div class="panel-heading">
 			<div class="row">
 				<div class="col-xs-6" id="register">
 					<a href="#" class="active" id="register-form-link">Register</a>
@@ -14,12 +128,12 @@
 					<a href="#" id="login-form-link">Login</a>
 				</div>
 			</div>
-		</div>
-		<div class="panel-body">
+		</div> -->
+		<!-- <div class="panel-body">
 			<div class="row">
 				<div class="col-lg-12">
-					<br>
-					<div class="errors text-center">
+					<br> -->
+					<!-- <div class="errors text-center">
 					{% if error or error_username or error_email or error_password or error_verify %}
 					<h4>
 						Please correct the following error(s):<br>
@@ -30,8 +144,8 @@
 						{{error_verify}}
 					</h4>
 					{% endif %}
-					</div>
-					<form id="login-form" method="post" role="form" style="display: none;">
+					</div> -->
+					<!-- <form id="login-form" method="post" role="form" style="display: none;">
 						<div class="form-group">
 							<input type="text" name="username" id="username" tabindex="1" class="form-control" placeholder="Username" value="{{username}}">
 						</div>
@@ -45,7 +159,7 @@
 								</div>
 							</div>
 						</div>
-						<!-- <div class="form-group">
+						<!- <div class="form-group">
 							<div class="row">
 								<div class="col-lg-12">
 									<div class="text-center">
@@ -54,7 +168,7 @@
 								</div>
 							</div>
 						</div> -->
-					</form>
+					<!-- </form>
 					<form id="register-form" method="post" role="form" style="display: block;">
 						<div class="form-group">
 							
@@ -79,11 +193,10 @@
 								</div>
 							</div>
 						</div>
-					</form>
-				</div>
+					</form> -->
+	<!-- 			</div>
 			</div>
-		</div>
-	</div>
-</div>
+		</div> -->
+
 {% endblock %}
 
