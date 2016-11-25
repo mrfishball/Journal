@@ -11,20 +11,32 @@ jQuery(document).ready(function($){
 		$main_nav = $('.main-nav');
 
 	//open modal
-	$main_nav.on('click', function(event){
+	// $main_nav.on('click', function(event){
 
-		if( $(event.target).is($main_nav) ) {
-			// on mobile open the submenu
-			$(this).children('ul').toggleClass('is-visible');
-		} else {
-			// on mobile close submenu
-			$main_nav.children('ul').removeClass('is-visible');
-			//show modal layer
-			$form_modal.addClass('is-visible');	
-			//show the selected form
-			( $(event.target).is('.cd-signup') ) ? signup_selected() : login_selected();
-		}
+	// 	if( $(event.target).is($main_nav) ) {
+	// 		// on mobile open the submenu
+	// 		$(this).children('ul').toggleClass('is-visible');
+	// 	} else {
+	// 		// on mobile close submenu
+	// 		$main_nav.children('ul').removeClass('is-visible');
+	// 		//show modal layer
+	// 		$form_modal.addClass('is-visible');	
+	// 		//show the selected form
+	// 		( $(event.target).is('.cd-signup') ) ? signup_selected() : login_selected();
+	// 	}
 
+	// });
+
+	$('.cd-signup').on('click', function(event) {
+		event.preventDefault();
+		$form_modal.addClass('is-visible');
+		signup_selected();
+	});
+
+	$('.cd-signin').on('click', function(event) {
+		event.preventDefault();
+		$form_modal.addClass('is-visible');
+		login_selected();
 	});
 
 	//close modal

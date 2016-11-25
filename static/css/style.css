@@ -250,7 +250,7 @@ hr.small {
   -moz-background-size: cover;
   background-size: cover;
   -o-background-size: cover;
-/*  margin-bottom: 50px;*/
+  margin-bottom: 50px;
   height: 100%;
 }
 .intro-header .site-heading,

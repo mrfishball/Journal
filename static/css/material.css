@@ -29,7 +29,7 @@ img {
 
 .main-nav,
 .main-nav ul {
-  height: 85vh;
+  height: 75vh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -51,7 +51,7 @@ img {
   padding-left: 5%;
   background: #292a34;
   font-size: 1.3em;
-/*  border-top: 1px solid #3b3d4b;*/
+  opacity: .85;
   color: #fff;
   margin: 1.5em;
   box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
@@ -64,10 +64,6 @@ img {
 }
 .main-nav a.cd-signup {
   background: #2f889a;
-}
-
-.main-nav a.cd-signin, {
-  opacity: .3;
 }
 
 /* -------------------------------- 
