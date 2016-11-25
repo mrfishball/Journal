@@ -47,7 +47,8 @@ jQuery(document).ready(function($){
 	});
 
 	//hide or show password
-	$('.hide-password').on('click', function(){
+	$('.hide-password').on('click', function(event){
+		event.preventDefault();
 		var $this= $(this),
 			$password_field = $this.prev('input');
 		

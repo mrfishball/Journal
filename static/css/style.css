@@ -213,6 +213,10 @@ hr.small {
 .comment-control a {
   margin-left: 10px;
 }
+.navbar-default {
+/*  background: transparent !important;
+  border-color: transparent !important;*/
+}
 .navbar-custom {
   position: absolute;
   top: 0;
